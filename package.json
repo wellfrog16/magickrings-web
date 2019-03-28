@@ -1,0 +1,36 @@
+{
+  "name": "template-vue-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "eslint": "vue-cli-service lint",
+    "eslint2": "stylelint src/components/tinymce/**/* --fix",
+    "stylelint": "stylelint */**/*.{css,less,vue} --fix",
+    "log": "git log --pretty=oneline"
+  },
+  "dependencies": {
+    "element-ui": "^2.6.1",
+    "vue": "^2.6.10",
+    "vue-infinite-loading": "^2.4.3",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.5.1",
+    "@vue/cli-plugin-eslint": "^3.5.1",
+    "@vue/cli-service": "^3.5.1",
+    "@vue/eslint-config-airbnb": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "eslint-plugin-vue": "^5.2.2",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "less-plugin-functions": "^1.0.0",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-webpack-plugin": "^0.10.5",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
