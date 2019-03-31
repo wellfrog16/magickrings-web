@@ -1,0 +1,27 @@
+// icon图标样式专用less
+.icon {
+    background-size: contain;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.iconInit(@url) {
+    background-image: data-uri(@url);
+    background-size: 100% auto;
+    width: image-width(@url);
+    height: image-height(@url);
+}
+
+.icon-col-active {
+    background-position-y: -100%;
+}
+
+.icon-row-active {
+    background-position-x: -100%;
+}
+
+.icon-search {
+    @url: '../../img/icon/search.png';
+
+    .iconInit(@url);
+}

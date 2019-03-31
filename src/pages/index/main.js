@@ -1,5 +1,6 @@
 import Vue from 'vue';
-import ElementUI from 'element-ui';
+// import ElementUI from 'element-ui';
+import { Icon, Row, Col } from 'element-ui';
 import InfiniteLoading from 'vue-infinite-loading'; // 滚动加载
 // import filters from '@/utils/filters';
 import store from './store';
@@ -15,7 +16,10 @@ import '@/utils/directive';
 Vue.config.productionTip = false;
 
 // 插件
-Vue.use(ElementUI, { size: 'small', zIndex: 2000 });
+// Vue.use(ElementUI, { size: 'small', zIndex: 2000 });
+Vue.use(Icon);
+Vue.use(Row);
+Vue.use(Col);
 Vue.use(InfiniteLoading);
 
 new Vue({
