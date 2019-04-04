@@ -1,6 +1,9 @@
 const LessPluginFun = require('less-plugin-functions');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const path = require('path');
 const pages = require('./build/pages');
+
+const resolve = dir => path.join(__dirname, dir);
 
 module.exports = {
     publicPath: '/',
@@ -43,6 +46,10 @@ module.exports = {
     },
 
     chainWebpack: (config) => {
+        config.resolve.alias
+            .set('@', resolve('src'))
+            .set('#index', resolve('src/pages/index'));
+
         config.module
             .rule('eslint')
             .use('eslint-loader')

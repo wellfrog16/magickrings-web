@@ -104,7 +104,7 @@ export default {
 
         &:hover {
             span {
-                cursor: pointer;
+                // cursor: pointer;
                 color: #ab8960;
             }
 

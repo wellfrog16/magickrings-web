@@ -28,6 +28,12 @@
                     <li>微信客服1: magickrings</li>
                     <li>微信客服2: himalayancrystals</li>
                 </ul>
+                <div :class="$style.share">
+                    <a href="#"><i class="icon icon-sina"></i></a>
+                    <a href="#"><i class="icon icon-wx"></i></a>
+                    <a href="#"><i class="icon icon-xiaohongshu"></i></a>
+                    <a href="#"><i class="icon icon-douyin"></i></a>
+                </div>
             </el-col>
         </el-row>
         <el-row v-html="copyright" :class="$style.copyright"></el-row>
@@ -85,6 +91,12 @@ footer {
         display: inline;
         padding-bottom: 4px;
         border-bottom: 1px solid #fff;
+    }
+
+    .share {
+        a + a {
+            margin-left: 15px;
+        }
     }
 }
 
