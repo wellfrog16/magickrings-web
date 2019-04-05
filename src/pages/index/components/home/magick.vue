@@ -1,12 +1,10 @@
 <template>
     <div :class="$style.main">
-        <el-row :gutter="20">
-            <el-col :span="12" v-for="item in data" :key="item.name" class="flex-center">
+        <el-row :gutter="10">
+            <el-col :span="6" v-for="item in data" :key="item.name" class="flex-center">
                 <div :class="[$style.item, 'rel-fullsize']">
-                    <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/category/${item.name}-photo.jpg`" :alt="item.name">
-                    <p class="abs-fullsize flex-center">
-                        <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/category/${item.name}-text.png`">
-                    </p>
+                    <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/magick/${item.name}.jpg`" :alt="item.name">
+                    <p class="abs-fullsize flex-center">{{ item.title }}</p>
                 </div>
             </el-col>
         </el-row>
@@ -18,8 +16,10 @@ export default {
     data() {
         return {
             data: [
-                { name: 'astral-reading' },
-                { name: 'holy-fire-reiki' },
+                { name: 'love-magick', title: 'LOVE MAGICK' },
+                { name: 'money-magick', title: 'MONEY MAGICK' },
+                { name: 'beauty-magick', title: 'BEAUTY MAGICK' },
+                { name: 'luck-magick', title: 'LUCK MAGICK' },
             ],
         };
     },
@@ -29,7 +29,7 @@ export default {
 <style lang="less" module>
 .main {
     max-width: 1200px;
-    margin: 30px auto;
+    margin: 80px auto;
 }
 
 .item {
@@ -45,10 +45,6 @@ export default {
         margin: 0;
         font-size: 18px;
         transition: all 0.3s ease-in;
-
-        img {
-            width: initial;
-        }
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.3);

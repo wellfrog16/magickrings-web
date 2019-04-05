@@ -6,7 +6,7 @@ const pages = require('./build/pages');
 const resolve = dir => path.join(__dirname, dir);
 
 module.exports = {
-    publicPath: '/',
+    publicPath: './',
     assetsDir: 'src/assets',
 
     devServer: {

@@ -3,11 +3,14 @@
         <!-- KV -->
         <x-kv />
 
-        <!-- 分类 -->
-        <x-category />
+        <!-- 魔法课 -->
+        <x-magick />
 
-        <!-- 三大主题 -->
-        <x-theme />
+        <!-- 魔法礼仪 -->
+        <x-magick-ceremony />
+
+        <!-- 两大分类 -->
+        <x-category />
 
         <!-- 课程 -->
         <x-course />
@@ -22,8 +25,9 @@
 
 <script>
 import XKv from '#index/components/home/kv.vue';
+import XMagick from '#index/components/home/magick.vue';
+import XMagickCeremony from '#index/components/home/magickCeremony.vue';
 import XCategory from '#index/components/home/category.vue';
-import XTheme from '#index/components/home/theme.vue';
 import XCourse from '#index/components/home/course.vue';
 import XCertificate from '#index/components/home/certificate.vue';
 import XBlog from '#index/components/home/blog.vue';
@@ -31,8 +35,9 @@ import XBlog from '#index/components/home/blog.vue';
 export default {
     components: {
         XKv,
+        XMagick,
+        XMagickCeremony,
         XCategory,
-        XTheme,
         XCourse,
         XCertificate,
         XBlog,

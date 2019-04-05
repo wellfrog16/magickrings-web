@@ -1,6 +1,6 @@
 <template>
     <div :class="[$style.main, 'flex-center']">
-        <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/kv/text.png`">
+        <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/magick-ceremony/text.png`">
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
 
 <style lang="less" module>
 .main {
-    @url: '../../../../../public/src/assets/img/usr/home/kv/bg.jpg';
+    @url: '../../../../../public/src/assets/img/usr/home/magick-ceremony/bg.jpg';
 
     background-image: url(@url);
     background-size: image-width(@url) auto;
