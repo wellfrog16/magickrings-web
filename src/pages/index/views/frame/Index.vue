@@ -1,23 +1,25 @@
 <template>
     <div>
         <x-header />
+        <x-breadcrumb v-show="$route.name !== '原型首页'" />
         <router-view />
         <x-footer />
     </div>
 </template>
 
 <script>
-import Header from '../../components/common/header.vue';
-import Footer from '../../components/common/footer.vue';
+import XHeader from '../../components/common/header.vue';
+import XFooter from '../../components/common/footer.vue';
+import XBreadcrumb from '../../components/common/breadcrumb.vue';
 
 export default {
     components: {
-        XHeader: Header,
-        XFooter: Footer,
+        XHeader,
+        XFooter,
+        XBreadcrumb,
     },
-    data() {
-        return {
-        };
+    mounted() {
+        console.log(this.$route);
     },
 };
 </script>

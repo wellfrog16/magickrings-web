@@ -6,7 +6,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const state = {
-    publicPath: process.env.BASE_URL,
+    publicPath: '.',
 };
 
 const mutations = {};

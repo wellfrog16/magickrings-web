@@ -1,7 +1,7 @@
 <template>
     <footer>
         <el-row :class="[$style.container, 'clear-box']">
-            <el-col :span="6">
+            <el-col :span="6" :class="$style.logo">
                 <img src="@/assets/img/common/sub-logo.png" alt="">
             </el-col>
             <el-col :span="6">
@@ -12,7 +12,7 @@
                     <li><a href="#">公众号</a></li>
                 </ul>
                 <div :class="$style.rule">
-                    <a href="#">隐私条款</a>
+                    <router-link to="/clause">隐私条款</router-link>
                 </div>
             </el-col>
             <el-col :span="6">
@@ -63,6 +63,10 @@ footer {
 
     :global(.el-col) {
         padding: 30px 0;
+    }
+
+    .logo img {
+        margin-top: 70px;
     }
 
     h4 {

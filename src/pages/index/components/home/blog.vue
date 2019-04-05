@@ -1,9 +1,9 @@
 <template>
     <div :class="$style.main">
-        <h3>Blog 买家秀</h3>
+        <h3>BLOG 买家秀</h3>
         <el-row :gutter="30">
             <el-col :span="8" v-for="item in data" :key="item.id">
-                <div :class="$style.pic">
+                <div>
                     <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/blog/${item.pic}.jpg`">
                 </div>
                 <div :class="$style.content">
@@ -47,12 +47,8 @@ export default {
         text-align: center;
         margin-bottom: 30px;
         letter-spacing: 2px;
-        font-weight: 100;
+        font-weight: normal;
     }
-}
-
-.pic {
-    color: aqua;
 }
 
 .content {

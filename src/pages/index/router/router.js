@@ -40,14 +40,20 @@ const router = new Router({
     scrollBehavior,
     routes: [
         {
+            name: '首页',
             path: '',
             component: Frame,
-            redirect: { name: 'home' },
+            redirect: { name: '原型首页' },
             children: [
                 {
-                    name: 'home',
+                    name: '原型首页',
                     path: 'home',
                     component: () => import('../views/home/Index.vue'),
+                },
+                {
+                    name: '隐私条款',
+                    path: 'clause',
+                    component: () => import('../views/clause/Index.vue'),
                 },
             ],
         },

@@ -7,7 +7,7 @@ const resolve = dir => path.join(__dirname, dir);
 
 module.exports = {
     publicPath: './',
-    assetsDir: 'src/assets',
+    assetsDir: './src/assets',
 
     devServer: {
         host: '0.0.0.0',

@@ -1,6 +1,8 @@
 import Vue from 'vue';
 // import ElementUI from 'element-ui';
-import { Icon, Row, Col } from 'element-ui';
+import {
+    Icon, Row, Col, Breadcrumb, BreadcrumbItem,
+} from 'element-ui';
 import InfiniteLoading from 'vue-infinite-loading'; // 滚动加载
 // import filters from '@/utils/filters';
 import store from './store';
@@ -20,6 +22,8 @@ Vue.config.productionTip = false;
 Vue.use(Icon);
 Vue.use(Row);
 Vue.use(Col);
+Vue.use(Breadcrumb);
+Vue.use(BreadcrumbItem);
 Vue.use(InfiniteLoading);
 
 new Vue({

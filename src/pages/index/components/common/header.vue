@@ -38,6 +38,8 @@ export default {
 </script>
 
 <style lang="less" module>
+@import '../../../../assets/style/config.less';
+
 .main {
     height: 110px;
     background-color: #fff;
@@ -105,7 +107,7 @@ export default {
         &:hover {
             span {
                 // cursor: pointer;
-                color: #ab8960;
+                color: @g-color-primary;
             }
 
             ul {

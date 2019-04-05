@@ -30,8 +30,13 @@ body {
     }
 }
 
-body, a, input[type=button] {
+body, input[type=button] {
     cursor: url('../img/common/mouse.png'), default;
+}
+
+// 覆盖element-ui的设置专用
+a {
+    cursor: url('../img/common/mouse.png'), default !important;
 }
 
 //美化webkit内核滚动条
