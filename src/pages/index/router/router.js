@@ -51,6 +51,11 @@ const router = new Router({
                     component: () => import('../views/home/Index.vue'),
                 },
                 {
+                    name: '恋爱魔法',
+                    path: 'magick-love',
+                    component: () => import('../views/magick/Love.vue'),
+                },
+                {
                     name: '课程',
                     path: 'course',
                     component: () => import('../views/course/Index.vue'),
