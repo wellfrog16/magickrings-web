@@ -19,7 +19,6 @@ export default {
         XBreadcrumb,
     },
     mounted() {
-        console.log(this.$route);
     },
 };
 </script>
