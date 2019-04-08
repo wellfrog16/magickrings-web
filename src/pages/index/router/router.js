@@ -51,6 +51,11 @@ const router = new Router({
                     component: () => import('../views/home/Index.vue'),
                 },
                 {
+                    name: '课程',
+                    path: 'course',
+                    component: () => import('../views/course/Index.vue'),
+                },
+                {
                     name: '隐私条款',
                     path: 'clause',
                     component: () => import('../views/clause/Index.vue'),

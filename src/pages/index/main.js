@@ -1,7 +1,7 @@
 import Vue from 'vue';
 // import ElementUI from 'element-ui';
 import {
-    Icon, Row, Col, Breadcrumb, BreadcrumbItem,
+    Icon, Row, Col, Breadcrumb, BreadcrumbItem, Tabs, TabPane,
 } from 'element-ui';
 import InfiniteLoading from 'vue-infinite-loading'; // 滚动加载
 // import filters from '@/utils/filters';
@@ -24,6 +24,8 @@ Vue.use(Row);
 Vue.use(Col);
 Vue.use(Breadcrumb);
 Vue.use(BreadcrumbItem);
+Vue.use(Tabs);
+Vue.use(TabPane);
 Vue.use(InfiniteLoading);
 
 new Vue({

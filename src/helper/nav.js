@@ -55,7 +55,7 @@ export default [
         children: [
             { name: '灵气课', link: '' },
             { name: '通灵课', link: '' },
-            { name: '草药雪课', link: '' },
+            { name: '草药学课', link: '' },
             { name: '美容魔法课', link: '' },
         ],
     },
