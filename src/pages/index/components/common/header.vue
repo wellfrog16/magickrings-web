@@ -86,7 +86,8 @@ export default {
         display: inline;
         margin-right: 20px;
         position: relative;
-        font-weight: bold;
+        // font-weight: bold;
+        font-size: 16px;
 
         ul {
             display: none;
@@ -96,7 +97,8 @@ export default {
             width: 120px;
             padding: 10px 0;
             background-color: #fff;
-            font-weight: normal;
+            // font-weight: normal;
+            font-size: 14px;
         }
 
         ul > li a {

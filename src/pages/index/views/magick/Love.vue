@@ -6,11 +6,15 @@
                     <div :class="$style.photo">
                         <img :src="`${$store.state.publicPath}/src/assets/img/usr/magick/${item.photo}`">
                         <p class="abs-fullsize flex-center"><span>浏览详细</span></p>
+                        <span :class="$style[item.status]">{{ item.status.toUpperCase() }}</span>
                     </div>
                     <h5>{{ item.name }}</h5>
                     <span>{{ item.price | currency('￥', 2) }}</span>
                 </el-col>
             </el-row>
+        </div>
+        <div class="more-button">
+            <span>浏览更多商品</span>
         </div>
     </div>
 </template>
@@ -21,49 +25,49 @@ export default {
         return {
             list: [
                 {
-                    id: 1, name: '产品名称', photo: 'photo1.jpg', price: '100', status: '',
+                    id: 1, name: '产品名称', photo: 'photo1.jpg', price: '100', status: 'new',
                 },
                 {
-                    id: 2, name: '产品名称', photo: 'photo2.jpg', price: '100', status: '',
+                    id: 2, name: '产品名称', photo: 'photo2.jpg', price: '100', status: 'hot',
                 },
                 {
-                    id: 3, name: '产品名称', photo: 'photo3.jpg', price: '100', status: '',
+                    id: 3, name: '产品名称', photo: 'photo3.jpg', price: '100', status: 'sale',
                 },
                 {
-                    id: 4, name: '产品名称', photo: 'photo4.jpg', price: '100', status: '',
+                    id: 4, name: '产品名称', photo: 'photo4.jpg', price: '100', status: 'new',
                 },
                 {
-                    id: 5, name: '产品名称', photo: 'photo5.jpg', price: '100', status: '',
+                    id: 5, name: '产品名称', photo: 'photo5.jpg', price: '100', status: 'hot',
                 },
                 {
-                    id: 6, name: '产品名称', photo: 'photo6.jpg', price: '100', status: '',
+                    id: 6, name: '产品名称', photo: 'photo6.jpg', price: '100', status: 'new',
                 },
                 {
-                    id: 7, name: '产品名称', photo: 'photo7.jpg', price: '100', status: '',
+                    id: 7, name: '产品名称', photo: 'photo7.jpg', price: '100', status: 'new',
                 },
                 {
-                    id: 8, name: '产品名称', photo: 'photo8.jpg', price: '100', status: '',
+                    id: 8, name: '产品名称', photo: 'photo8.jpg', price: '100', status: 'sale',
                 },
                 {
-                    id: 9, name: '产品名称', photo: 'photo9.jpg', price: '100', status: '',
+                    id: 9, name: '产品名称', photo: 'photo9.jpg', price: '100', status: 'sale',
                 },
                 {
-                    id: 10, name: '产品名称', photo: 'photo10.jpg', price: '100', status: '',
+                    id: 10, name: '产品名称', photo: 'photo10.jpg', price: '100', status: 'sale',
                 },
                 {
-                    id: 11, name: '产品名称', photo: 'photo11.jpg', price: '100', status: '',
+                    id: 11, name: '产品名称', photo: 'photo11.jpg', price: '100', status: 'hot',
                 },
                 {
-                    id: 12, name: '产品名称', photo: 'photo12.jpg', price: '100', status: '',
+                    id: 12, name: '产品名称', photo: 'photo12.jpg', price: '100', status: 'hot',
                 },
                 {
-                    id: 13, name: '产品名称', photo: 'photo13.jpg', price: '100', status: '',
+                    id: 13, name: '产品名称', photo: 'photo13.jpg', price: '100', status: 'new',
                 },
                 {
                     id: 14, name: '产品名称', photo: 'photo14.jpg', price: '100', status: '',
                 },
                 {
-                    id: 15, name: '产品名称', photo: 'photo15.jpg', price: '100', status: '',
+                    id: 15, name: '产品名称', photo: 'photo15.jpg', price: '100', status: 'hot',
                 },
                 {
                     id: 16, name: '产品名称', photo: 'photo16.jpg', price: '100', status: '',
@@ -76,7 +80,8 @@ export default {
 
 <style lang="less" module>
 .main {
-    font-weight: 100;
+    margin-top: 80px;
+    margin-bottom: 40px;
 }
 
 .item {
@@ -96,7 +101,7 @@ export default {
             width: 100%;
         }
 
-        span {
+        p span {
             color: #fff;
             font-size: 18px;
             padding-bottom: 4px;
@@ -113,6 +118,37 @@ export default {
                 opacity: 1;
                 background-color: rgba(0, 0, 0, 0.6);
             }
+        }
+
+        .status() {
+            font-size: 16px;
+            color: #fff;
+            display: block;
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            line-height: 70px;
+        }
+
+        .new {
+            .status();
+
+            background-color: #000;
+        }
+
+        .hot {
+            .status();
+
+            background-color: #a57f50;
+        }
+
+        .sale {
+            .status();
+
+            background-color: #811c21;
         }
     }
 

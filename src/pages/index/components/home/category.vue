@@ -4,9 +4,11 @@
             <el-col :span="12" v-for="item in data" :key="item.name" class="flex-center">
                 <div :class="[$style.item, 'rel-fullsize']">
                     <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/category/${item.name}-photo.jpg`" :alt="item.name">
-                    <p class="abs-fullsize flex-center">
-                        <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/category/${item.name}-text.png`">
-                    </p>
+                    <div class="abs-fullsize main-box">
+                        <!-- <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/category/${item.name}-text.png`"> -->
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.desc }}</p>
+                    </div>
                 </div>
             </el-col>
         </el-row>
@@ -18,8 +20,8 @@ export default {
     data() {
         return {
             data: [
-                { name: 'astral-reading' },
-                { name: 'holy-fire-reiki' },
+                { name: 'astral-reading', title: 'ASTRAL READING', desc: '星光占卜' },
+                { name: 'holy-fire-reiki', title: 'HOLY FIRE REIKI', desc: '圣火灵气' },
             ],
         };
     },
@@ -39,12 +41,14 @@ export default {
         width: 100%;
     }
 
-    p {
-        text-align: center;
-        color: #fff;
-        margin: 0;
-        font-size: 18px;
+    :global(.main-box) {
         transition: all 0.3s ease-in;
+
+        h3 {
+            font-size: 22px;
+            letter-spacing: 1px;
+            margin-top: -10px;
+        }
 
         img {
             width: initial;

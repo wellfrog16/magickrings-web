@@ -27,7 +27,7 @@
                 </el-col>
             </el-row>
         </div>
-        <div :class="$style.button">
+        <div class="more-button">
             <span>更多学员</span>
         </div>
     </div>
@@ -65,7 +65,6 @@ export default {
 
 <style lang="less" module>
 .main {
-    line-height: auto;
     margin-bottom: 40px;
 }
 
@@ -147,21 +146,6 @@ export default {
         box-sizing: border-box;
         flex-grow: 1;
         color: #b0b0b0;
-    }
-}
-
-.button {
-    text-align: center;
-
-    span {
-        background-color: #a57f50;
-        color: #fff;
-        font-weight: bold;
-        width: 160px;
-        height: 40px;
-        line-height: 40px;
-        border-radius: 5px;
-        display: inline-block;
     }
 }
 </style>

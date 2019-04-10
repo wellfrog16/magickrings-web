@@ -1,7 +1,9 @@
 <template>
     <div :class="[$style.main, 'flex-center']">
-        <div :class="$style.wrapper">
-            <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/course/text.png`">
+        <div :class="[$style.wrapper, 'main-box']">
+            <!-- <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/course/text.png`"> -->
+            <h3>SPIRITUALISM &amp; PSYCHIC COURSES</h3>
+            <p>全球认证资质，让你成为执证灵媒。</p>
             <div :class="$style.button">课程介绍</div>
         </div>
     </div>

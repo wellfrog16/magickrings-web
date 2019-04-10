@@ -2,7 +2,7 @@
     <footer>
         <el-row :class="[$style.container, 'clear-box']">
             <el-col :span="6" :class="$style.logo">
-                <img src="@/assets/img/common/sub-logo.png" alt="">
+                <img src="@/assets/img/common/sub-logo.png" width="120" alt="">
             </el-col>
             <el-col :span="6">
                 <h4>FOLLOW US</h4>
@@ -25,14 +25,50 @@
             <el-col :span="6">
                 <h4>CONTACT</h4>
                 <ul>
-                    <li>微信客服1: magickrings</li>
-                    <li>微信客服2: himalayancrystals</li>
+                    <li>
+                        <span>微信客服1: </span>
+                        <el-tooltip placement="top" effect="light">
+                            <div slot="content">
+                                <img :src="`${$store.state.publicPath}/src/assets/img/usr/qr/magickrings.jpg`" class="qr">
+                            </div>
+                            <span>magickrings</span>
+                        </el-tooltip>
+                    </li>
+                    <li>
+                        <span>微信客服2: </span>
+                        <el-tooltip placement="top" effect="light">
+                            <div slot="content">
+                                <img :src="`${$store.state.publicPath}/src/assets/img/usr/qr/himalayancrystals.jpg`" class="qr">
+                            </div>
+                            <span>himalayancrystals</span>
+                        </el-tooltip>
+                    </li>
                 </ul>
                 <div :class="$style.share">
-                    <a href="#"><i class="icon icon-sina"></i></a>
-                    <a href="#"><i class="icon icon-wx"></i></a>
-                    <a href="#"><i class="icon icon-xiaohongshu"></i></a>
-                    <a href="#"><i class="icon icon-douyin"></i></a>
+                    <el-tooltip placement="top" effect="light">
+                        <div slot="content">
+                            <img :src="`${$store.state.publicPath}/src/assets/img/usr/qr/weibo.jpg`" class="qr">
+                        </div>
+                        <span><i class="icon icon-weibo"></i></span>
+                    </el-tooltip>
+                    <el-tooltip placement="top" effect="light">
+                        <div slot="content">
+                            <img :src="`${$store.state.publicPath}/src/assets/img/usr/qr/wechat.jpg`" class="qr">
+                        </div>
+                        <span><i class="icon icon-wechat"></i></span>
+                    </el-tooltip>
+                    <el-tooltip placement="top" effect="light">
+                        <div slot="content">
+                            <img :src="`${$store.state.publicPath}/src/assets/img/usr/qr/xiaohongshu.jpg`" class="qr">
+                        </div>
+                        <span><i class="icon icon-xiaohongshu"></i></span>
+                    </el-tooltip>
+                    <el-tooltip placement="top" effect="light">
+                        <div slot="content">
+                            <img :src="`${$store.state.publicPath}/src/assets/img/usr/qr/xiaohongshu.jpg`" class="qr">
+                        </div>
+                        <span><i class="icon icon-douyin"></i></span>
+                    </el-tooltip>
                 </div>
             </el-col>
         </el-row>
@@ -70,14 +106,14 @@ footer {
     }
 
     h4 {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: normal;
         letter-spacing: 2px;
     }
 
     a, li {
         color: #fff;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: lighter;
     }
 
@@ -98,7 +134,10 @@ footer {
     }
 
     .share {
-        a + a {
+        display: flex;
+        align-items: center;
+
+        :global(.el-tooltip) + :global(.el-tooltip) {
             margin-left: 15px;
         }
     }

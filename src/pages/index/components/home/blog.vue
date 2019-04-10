@@ -57,11 +57,11 @@ export default {
     span {
         font-size: 16px;
         display: block;
+        color: #a3a3a3;
     }
 
     h5 {
-        font-size: 16px;
-        color: #a3a3a3;
+        font-size: 18px;
         font-weight: 100;
         margin: 10px auto 20px auto;
     }
