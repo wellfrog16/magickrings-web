@@ -54,6 +54,18 @@ const router = new Router({
                     name: '恋爱魔法',
                     path: 'magick-love',
                     component: () => import('../views/magick/Love.vue'),
+                    // children: [
+                    //     {
+                    //         name: '水晶',
+                    //         path: 'detail',
+                    //         component: () => import('../views/magick/Detail.vue'),
+                    //     },
+                    // ],
+                },
+                {
+                    name: '水晶',
+                    path: 'detail',
+                    component: () => import('../views/magick/Detail.vue'),
                 },
                 {
                     name: '课程',

@@ -11,6 +11,7 @@
                     <h5>{{ item.title }}</h5>
                     <p>{{ item.description + item.description }}</p>
                 </div>
+                <div :class="$style.more">查看更多》</div>
                 <div :class="$style.button"></div>
             </el-col>
         </el-row>
@@ -34,6 +35,9 @@ export default {
             ],
         };
     },
+    mounted() {
+        window.v = this;
+    },
 };
 </script>
 
@@ -53,22 +57,30 @@ export default {
 
 .content {
     margin-top: 20px;
+    height: 150px;
 
     span {
         font-size: 16px;
         display: block;
-        color: #a3a3a3;
     }
 
     h5 {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 100;
+        color: #a3a3a3;
         margin: 10px auto 20px auto;
     }
 
     p {
         color: #a3a3a3;
         letter-spacing: 2px;
+        font-size: 14px;
+        text-align: justify;
     }
+}
+
+.more {
+    text-align: right;
+    color: #a57f50;
 }
 </style>

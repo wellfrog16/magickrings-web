@@ -27,8 +27,8 @@
                 </el-col>
             </el-row>
         </div>
-        <div class="more-button">
-            <span>更多学员</span>
+        <div :class="$style.button">
+            <span class="more-button">更多学员</span>
         </div>
     </div>
 </template>
@@ -147,5 +147,9 @@ export default {
         flex-grow: 1;
         color: #b0b0b0;
     }
+}
+
+.button {
+    text-align: center;
 }
 </style>

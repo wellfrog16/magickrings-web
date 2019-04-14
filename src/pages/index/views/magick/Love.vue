@@ -6,15 +6,15 @@
                     <div :class="$style.photo">
                         <img :src="`${$store.state.publicPath}/src/assets/img/usr/magick/${item.photo}`">
                         <p class="abs-fullsize flex-center"><span>浏览详细</span></p>
-                        <span :class="$style[item.status]">{{ item.status.toUpperCase() }}</span>
+                        <span :class="[`status-${item.status}`, $style['status']]"></span>
                     </div>
                     <h5>{{ item.name }}</h5>
-                    <span>{{ item.price | currency('￥', 2) }}</span>
+                    <span :class="$style.price">{{ item.price | currency('￥', 2) }}</span>
                 </el-col>
             </el-row>
         </div>
-        <div class="more-button">
-            <span>浏览更多商品</span>
+        <div :class="$style.button">
+            <span class="more-button">浏览更多商品</span>
         </div>
     </div>
 </template>
@@ -80,7 +80,6 @@ export default {
 
 <style lang="less" module>
 .main {
-    margin-top: 80px;
     margin-bottom: 40px;
 }
 
@@ -88,7 +87,7 @@ export default {
     text-align: center;
     height: 480px;
 
-    span {
+    .price {
         color: #a57f50;
     }
 
@@ -120,35 +119,10 @@ export default {
             }
         }
 
-        .status() {
-            font-size: 16px;
-            color: #fff;
-            display: block;
-            width: 70px;
-            height: 70px;
-            border-radius: 100%;
+        .status {
             position: absolute;
             top: -15px;
             right: -15px;
-            line-height: 70px;
-        }
-
-        .new {
-            .status();
-
-            background-color: #000;
-        }
-
-        .hot {
-            .status();
-
-            background-color: #a57f50;
-        }
-
-        .sale {
-            .status();
-
-            background-color: #811c21;
         }
     }
 
@@ -157,5 +131,9 @@ export default {
         margin-bottom: 5px;
         font-size: 14px;
     }
+}
+
+.button {
+    text-align: center;
 }
 </style>

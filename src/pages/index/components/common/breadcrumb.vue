@@ -21,6 +21,7 @@ export default {
 
 .main {
     margin-top: 60px !important;
+    height: 90px;
 
     a {
         font-weight: normal;

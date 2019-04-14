@@ -65,7 +65,7 @@
                     </el-tooltip>
                     <el-tooltip placement="top" effect="light">
                         <div slot="content">
-                            <img :src="`${$store.state.publicPath}/src/assets/img/usr/qr/xiaohongshu.jpg`" class="qr">
+                            <img :src="`${$store.state.publicPath}/src/assets/img/usr/qr/douyin.jpg`" class="qr">
                         </div>
                         <span><i class="icon icon-douyin"></i></span>
                     </el-tooltip>
