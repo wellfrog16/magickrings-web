@@ -1,7 +1,8 @@
 import Vue from 'vue';
 // import ElementUI from 'element-ui';
 import {
-    Icon, Row, Col, Breadcrumb, BreadcrumbItem, Tabs, TabPane, Tooltip,
+    Icon, Row, Col, Breadcrumb, BreadcrumbItem, Tabs, TabPane, Tooltip, Form, FormItem, Input,
+    Select, Option, DatePicker, Button,
 } from 'element-ui';
 import InfiniteLoading from 'vue-infinite-loading'; // 滚动加载
 // import filters from '@/utils/filters';
@@ -27,6 +28,13 @@ Vue.use(BreadcrumbItem);
 Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Tooltip);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Input);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(DatePicker);
+Vue.use(Button);
 Vue.use(InfiniteLoading);
 
 new Vue({

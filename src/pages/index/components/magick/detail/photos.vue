@@ -33,13 +33,14 @@ export default {
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
         });
-        const test = new Swiper(`.${this.$style['gallery-top']}`, {
+
+        const test = new Swiper(`.${this.$style['gallery-top']}`, { // eslint-disable-line
             // spaceBetween: 10,
             thumbs: {
                 swiper: galleryThumbs,
             },
         });
-        console.log(test);
+        // console.log(test);
     },
 };
 </script>

@@ -73,6 +73,11 @@ const router = new Router({
                     component: () => import('../views/course/Index.vue'),
                 },
                 {
+                    name: '课程1',
+                    path: 'course2',
+                    component: () => import('../views/course2/Index.vue'),
+                },
+                {
                     name: '隐私条款',
                     path: 'clause',
                     component: () => import('../views/clause/Index.vue'),
