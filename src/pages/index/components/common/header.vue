@@ -1,7 +1,7 @@
 <template>
     <div :class="[$style.main, 'flex-center']">
         <div :class="$style.logo">
-            <a href="#"><img src="@/assets/img/common/logo.png" ></a>
+            <router-link to="/home"><img src="@/assets/img/common/logo.png" ></router-link>
         </div>
         <div :class="[$style.nav, 'clear-box']">
             <ul>
@@ -21,6 +21,11 @@
                 <input type="text" placeholder="Search">
                 <i class="icon icon-search"></i>
             </div>
+        </div>
+        <div :class="$style.button">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
 </template>
@@ -82,6 +87,8 @@ export default {
 }
 
 .nav {
+    background-color: #fff;
+
     > ul > li {
         display: inline;
         margin-right: 20px;
@@ -117,6 +124,70 @@ export default {
             ul {
                 display: block;
             }
+        }
+    }
+}
+
+.button {
+    display: none;
+}
+
+@media only screen and (max-width: @g-mwidth) {
+    .main {
+        height: 50px;
+    }
+
+    .logo {
+        position: initial;
+        height: 30px;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .search {
+        line-height: 1em;
+        display: none;
+    }
+
+    .nav {
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        padding: 5px 0;
+        border-top: 1px solid #333;
+
+        > ul > li {
+            display: block;
+            margin-right: 0;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+        }
+    }
+
+    .button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        height: 34px;
+        width: 44px;
+        background-color: #333;
+        top: 8px;
+        left: 8px;
+        box-sizing: border-box;
+        border-radius: 4px;
+
+        span {
+            display: inline-block;
+            width: 22px;
+            height: 2px;
+            background-color: #fff;
+            margin: 3px 0;
         }
     }
 }

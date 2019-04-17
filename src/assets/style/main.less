@@ -40,14 +40,14 @@ a, .el-tabs__item {
 }
 
 //美化webkit内核滚动条
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
+// ::-webkit-scrollbar {
+//     width: 8px;
+//     height: 8px;
+// }
 
-::-webkit-scrollbar-thumb {
-    background-color: #999;
-}
+// ::-webkit-scrollbar-thumb {
+//     background-color: #999;
+// }
 
 // ------------------------------------框架-----------------------------------------
 
@@ -56,4 +56,11 @@ a, .el-tabs__item {
     min-width: 1200px;
     margin: 0 auto;
     background-color: #fff;
+}
+
+@media only screen and (max-width: @g-mwidth) {
+    #app {
+        max-width: 100%;
+        min-width: 100%;
+    }
 }
