@@ -3,10 +3,10 @@
         <div :class="$style.logo">
             <router-link to="/home"><img src="@/assets/img/common/logo.png" ></router-link>
         </div>
-        <div :class="[$style.nav, 'clear-box']">
+        <div :class="[$style.nav, 'clear-box']" v-show="navVisible">
             <ul>
                 <li v-for="(item, index) in navData" :key="index">
-                    <span v-if="item.children">{{ item.name }}<i class="el-icon-arrow-down"></i></span>
+                    <span v-if="item.children" :class="$style.name">{{ item.name }}<i class="el-icon-arrow-down"></i></span>
                     <span v-else><a href="#">{{ item.name }}</a></span>
                     <ul v-if="item.children">
                         <li v-for="child in item.children" :key="child.name">
@@ -22,7 +22,7 @@
                 <i class="icon icon-search"></i>
             </div>
         </div>
-        <div :class="$style.button">
+        <div :class="$style.button" @click="handleNav">
             <span></span>
             <span></span>
             <span></span>
@@ -31,13 +31,31 @@
 </template>
 
 <script>
+import { $ } from '@/utils/cdn';
 import navData from '@/helper/nav';
 
 export default {
     data() {
         return {
             navData,
+            navVisible: $.browser.desktop,
         };
+    },
+    mounted() {
+        this.init();
+    },
+    methods: {
+        init() {
+            if ($.browser.mobile) {
+                console.log('手机');
+                $(`.${this.$style.name}`).hammer().bind('tap', function tap() {
+                    $(this).parent().find('ul').toggle();
+                });
+            }
+        },
+        handleNav() {
+            this.navVisible = !this.navVisible;
+        },
     },
 };
 </script>
@@ -88,6 +106,10 @@ export default {
 
 .nav {
     background-color: #fff;
+
+    .name {
+        display: inline;
+    }
 
     > ul > li {
         display: inline;
@@ -151,23 +173,6 @@ export default {
         display: none;
     }
 
-    .nav {
-        position: absolute;
-        width: 100%;
-        top: 50px;
-        padding: 5px 0;
-        border-top: 1px solid #333;
-
-        > ul > li {
-            display: block;
-            margin-right: 0;
-            position: relative;
-            height: 40px;
-            line-height: 40px;
-            padding: 0 20px;
-        }
-    }
-
     .button {
         display: flex;
         flex-direction: column;
@@ -188,6 +193,34 @@ export default {
             height: 2px;
             background-color: #fff;
             margin: 3px 0;
+        }
+    }
+
+    .nav {
+        // display: none;
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        padding: 5px 0;
+        border-top: 1px solid #333;
+        background-color: #fff;
+        z-index: 10;
+
+        .name {
+            display: block;
+        }
+
+        > ul > li {
+            display: block;
+            margin-right: 0;
+            position: relative;
+            line-height: 40px;
+            padding: 0 20px;
+
+            ul {
+                display: none;
+                position: initial;
+            }
         }
     }
 }
