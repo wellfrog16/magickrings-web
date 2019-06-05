@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { cstore } from '@/helper/lakes';
 
 // 站点模块
 
@@ -7,9 +8,12 @@ Vue.use(Vuex);
 
 const state = {
     publicPath: '.',
+    breadcrumb: [],
 };
 
-const mutations = {};
+const mutations = {
+    setState: (states, payload) => cstore.mutations.setState(states, payload),
+};
 const getters = {};
 const actions = {};
 

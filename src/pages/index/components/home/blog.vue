@@ -2,16 +2,16 @@
     <div :class="$style.main">
         <h3>BLOG 买家秀</h3>
         <el-row :gutter="30">
-            <el-col :span="8" v-for="item in data" :key="item.id">
+            <el-col :span="8" v-for="item in list" :key="item.id">
                 <div>
-                    <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/blog/${item.pic}.jpg`">
+                    <img :src="`${imgServer}/${item.photo}`" width="380" height="380">
                 </div>
                 <div :class="$style.content">
-                    <span>@{{ item.user }}</span>
+                    <span>@{{ item.author }}</span>
                     <h5>{{ item.title }}</h5>
-                    <p>{{ item.description + item.description }}</p>
+                    <p>{{ item.message }}</p>
                 </div>
-                <div :class="$style.more">查看更多》</div>
+                <div :class="$style.more"><a :href="item.url" target="_blank">查看更多》</a></div>
                 <div :class="$style.button"></div>
             </el-col>
         </el-row>
@@ -19,24 +19,26 @@
 </template>
 
 <script>
+import api from '@/api/usr/taobao-info';
+import config from '@/config';
+
 export default {
     data() {
         return {
-            data: [
-                {
-                    id: 1, user: '买家1', title: '商品标题名称', description: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述', pic: 'pic1',
-                },
-                {
-                    id: 2, user: '买家2', title: '商品标题稀里哗啦', description: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述', pic: 'pic2',
-                },
-                {
-                    id: 3, user: '买家3', title: '商品标题嘁哩喀喳', description: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述', pic: 'pic3',
-                },
-            ],
+            list: [],
+            imgServer: config.server.img,
         };
     },
     mounted() {
-        window.v = this;
+        this.loadlist();
+    },
+    methods: {
+        async loadlist() {
+            const res = await api.list({ p: 1, ps: 3 });
+            if (res) {
+                this.list = res.list;
+            }
+        },
     },
 };
 </script>
@@ -81,6 +83,9 @@ export default {
 
 .more {
     text-align: right;
-    color: #a57f50;
+
+    a {
+        color: #a57f50;
+    }
 }
 </style>

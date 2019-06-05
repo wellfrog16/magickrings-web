@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Frame from '../views/frame/Index.vue';
-// import Root from '../../../components/Root.vue';
+import Root from '../../../components/Root.vue';
 // import { helper } from '@/helper/lakes';
 
 Vue.use(Router);
@@ -49,6 +49,20 @@ const router = new Router({
                     name: '原型首页',
                     path: 'home',
                     component: () => import('../views/home/Index.vue'),
+                },
+                {
+                    path: 'product',
+                    component: Root,
+                    children: [
+                        {
+                            path: 'category/:id',
+                            component: () => import('../views/product/Index.vue'),
+                        },
+                        {
+                            path: 'detail/:id',
+                            component: () => import('../views/product/Detail.vue'),
+                        },
+                    ],
                 },
                 {
                     name: '恋爱魔法',

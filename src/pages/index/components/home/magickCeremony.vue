@@ -1,8 +1,9 @@
 <template>
     <div :class="[$style.main, 'main-box']">
-        <!-- <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/magick-ceremony/text.png`"> -->
-        <h3>MAGICK CEREMONY</h3>
-        <p>独家 魔法蜡烛阵 魔法仪式 全球女巫都在做</p>
+        <router-link to="/product/5">
+            <h3>MAGICK CEREMONY</h3>
+            <p>独家 魔法蜡烛阵 魔法仪式 全球女巫都在做</p>
+        </router-link>
     </div>
 </template>
 
@@ -23,6 +24,10 @@ export default {
 
     h3 {
         margin-top: -10px;
+    }
+
+    a {
+        color: #fff;
     }
 }
 </style>

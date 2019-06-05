@@ -2,17 +2,27 @@
     <div :class="[$style.main, 'main-wrapper']">
         <el-breadcrumb separator="/">
             <el-breadcrumb-item
-                v-for="item in $route.matched"
+                v-for="item in list"
                 :key="item.name"
             >
-                <router-link :to="item.path || '/'">{{ item.name }}</router-link>
+                <router-link :to="item.path">{{ item.name }}</router-link>
             </el-breadcrumb-item>
         </el-breadcrumb>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
+    computed: {
+        ...mapState(['breadcrumb']),
+
+        list() {
+            const home = { name: '首页', path: '/' };
+            return [home, ...this.breadcrumb];
+        },
+    },
 };
 </script>
 
