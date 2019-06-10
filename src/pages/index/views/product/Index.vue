@@ -4,8 +4,10 @@
             <el-row :gutter="28">
                 <el-col :span="6" v-for="item in list" :key="item.id" :class="$style.item">
                     <div :class="$style.photo">
-                        <img :src="`${$store.state.publicPath}/src/assets/img/usr/magick/${item.photo}`">
-                        <p class="abs-fullsize flex-center"><span>浏览详细</span></p>
+                        <img :src="`${imgServer}/${item.photos[0]}`" width="280" height="360">
+                        <p class="abs-fullsize flex-center">
+                            <router-link :to="`/product/detail/${item.id}`"><span>浏览详细</span></router-link>
+                        </p>
                         <span :class="[`status-${item.status}`, $style['status']]"></span>
                     </div>
                     <h5>{{ item.name }}</h5>
@@ -14,7 +16,7 @@
             </el-row>
         </div>
         <div :class="$style.button">
-            <span class="more-button">浏览更多商品</span>
+            <span class="more-button" @click="handleMore" v-if="btnMoreVisible">浏览更多商品</span>
         </div>
     </div>
 </template>
@@ -28,77 +30,43 @@ export default {
     data() {
         return {
             list: [],
-            list2: [
-                {
-                    id: 1, name: '产品名称', photo: 'photo1.jpg', price: '100', status: 'new',
-                },
-                {
-                    id: 2, name: '产品名称', photo: 'photo2.jpg', price: '100', status: 'hot',
-                },
-                {
-                    id: 3, name: '产品名称', photo: 'photo3.jpg', price: '100', status: 'sale',
-                },
-                {
-                    id: 4, name: '产品名称', photo: 'photo4.jpg', price: '100', status: 'new',
-                },
-                {
-                    id: 5, name: '产品名称', photo: 'photo5.jpg', price: '100', status: 'hot',
-                },
-                {
-                    id: 6, name: '产品名称', photo: 'photo6.jpg', price: '100', status: 'new',
-                },
-                {
-                    id: 7, name: '产品名称', photo: 'photo7.jpg', price: '100', status: 'new',
-                },
-                {
-                    id: 8, name: '产品名称', photo: 'photo8.jpg', price: '100', status: 'sale',
-                },
-                {
-                    id: 9, name: '产品名称', photo: 'photo9.jpg', price: '100', status: 'sale',
-                },
-                {
-                    id: 10, name: '产品名称', photo: 'photo10.jpg', price: '100', status: 'sale',
-                },
-                {
-                    id: 11, name: '产品名称', photo: 'photo11.jpg', price: '100', status: 'hot',
-                },
-                {
-                    id: 12, name: '产品名称', photo: 'photo12.jpg', price: '100', status: 'hot',
-                },
-                {
-                    id: 13, name: '产品名称', photo: 'photo13.jpg', price: '100', status: 'new',
-                },
-                {
-                    id: 14, name: '产品名称', photo: 'photo14.jpg', price: '100', status: '',
-                },
-                {
-                    id: 15, name: '产品名称', photo: 'photo15.jpg', price: '100', status: 'hot',
-                },
-                {
-                    id: 16, name: '产品名称', photo: 'photo16.jpg', price: '100', status: '',
-                },
-            ],
+            btnMoreVisible: true,
+            category: 0,
             p: 1,
-            ps: 16,
+            ps: 2,
             imgServer: config.server.img,
         };
     },
+    beforeRouteUpdate(to, form, next) {
+        this.category = to.params.id;
+        this.init();
+        next();
+    },
     mounted() {
-        this.setBreadcrumb();
-        this.loadlist();
+        this.category = this.$route.params.id;
+        this.init();
     },
     methods: {
         ...mapMutations(['setState']),
 
+        init() {
+            this.setBreadcrumb();
+            this.btnMoreVisible = true;
+            this.list = [];
+            this.p = 1;
+            this.loadlist();
+        },
+
         // 设置面包屑导航
         setBreadcrumb() {
-            const { id } = this.$route.params;
+            const id = this.category;
+            const path = `/product/category/${id}`;
             const data = {
-                1: { name: '恋爱魔法', path: `/product/${id}` },
-                2: { name: '招财魔法', path: `/product/${id}` },
-                3: { name: '美容魔法', path: `/product/${id}` },
-                4: { name: '驱邪转运', path: `/product/${id}` },
-                5: { name: '仪式占卜', path: `/product/${id}` },
+                1: { name: '恋爱魔法', path },
+                2: { name: '招财魔法', path },
+                3: { name: '美容魔法', path },
+                4: { name: '驱邪转运', path },
+                5: { name: '仪式占卜', path },
             };
 
             this.setState({ breadcrumb: [data[id]] });
@@ -106,11 +74,18 @@ export default {
 
         // 列表
         async loadlist() {
-            const { id } = this.$route.params;
+            const id = this.category;
             const res = await api.list({ category: id, p: this.p, ps: this.ps });
-            if (res) {
-                console.log(res);
+            if (res && res.list.length > 0) {
+                this.list = [...this.list, ...res.list];
+            } else {
+                this.btnMoreVisible = false;
             }
+        },
+
+        handleMore() {
+            this.p = this.p + 1;
+            this.loadlist();
         },
     },
 };

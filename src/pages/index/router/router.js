@@ -77,6 +77,11 @@ const router = new Router({
                     // ],
                 },
                 {
+                    name: '品牌故事',
+                    path: 'story',
+                    component: () => import('../views/story/Index.vue'),
+                },
+                {
                     name: '水晶',
                     path: 'detail',
                     component: () => import('../views/magick/Detail.vue'),

@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import { cstore } from '@/helper/lakes';
 
 // 站点模块
+import product from './modules/product';
 
 Vue.use(Vuex);
 
@@ -23,4 +24,7 @@ export default new Vuex.Store({
     mutations,
     getters,
     actions,
+    modules: {
+        product,
+    },
 });
