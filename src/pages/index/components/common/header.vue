@@ -7,10 +7,18 @@
             <ul>
                 <li v-for="(item, index) in navData" :key="index">
                     <span v-if="item.children" :class="$style.name">{{ item.name }}<i class="el-icon-arrow-down"></i></span>
-                    <span v-else><a href="#">{{ item.name }}</a></span>
+                    <!-- 无children -->
+                    <span v-else><router-link :to="item.path">{{ item.name }}</router-link></span>
+                    <!-- 有children -->
                     <ul v-if="item.children">
                         <li v-for="child in item.children" :key="child.name">
-                            <a href="#">{{ child.name }}</a>
+                            <router-link v-if="child.path" :to="child.path">{{ child.name }}</router-link>
+                            <router-link
+                                v-else
+                                :to="`/product/category/${item.id}?child=${child.id}&childName=${child.name}`"
+                            >
+                                {{ child.name }}
+                            </router-link>
                         </li>
                     </ul>
                 </li>
@@ -18,7 +26,7 @@
         </div>
         <div :class="$style.search">
             <div>
-                <input type="text" placeholder="Search">
+                <input type="text" v-model="key" placeholder="Search" @keyup.enter="handleSearch">
                 <i class="icon icon-search"></i>
             </div>
         </div>
@@ -32,11 +40,13 @@
 
 <script>
 import { $ } from '@/utils/cdn';
+import api from '@/api/usr/category';
 import navData from '@/helper/nav';
 
 export default {
     data() {
         return {
+            key: '',
             navData,
             navVisible: $.browser.desktop,
         };
@@ -46,15 +56,35 @@ export default {
     },
     methods: {
         init() {
-            if ($.browser.mobile) {
-                console.log('手机');
-                $(`.${this.$style.name}`).hammer().bind('tap', function tap() {
-                    $(this).parent().find('ul').toggle();
+            this.loadNav();
+            // if ($.browser.mobile) {
+            //     console.log('手机');
+            //     $(`.${this.$style.name}`).hammer().bind('tap', function tap() {
+            //         $(this).parent().find('ul').toggle();
+            //     });
+            // }
+        },
+        async loadNav() {
+            const res = await api.list();
+            if (res) {
+                this.navData.forEach((item) => {
+                    if (item.children) {
+                        const result = res.list.find(el => el.name === item.name);
+                        if (result) {
+                            item.children = [...result.children];
+                        }
+                    }
                 });
             }
         },
         handleNav() {
             this.navVisible = !this.navVisible;
+        },
+
+        handleSearch() {
+            if (this.key) {
+                this.$router.push({ path: '/product/search', query: { key: this.key } });
+            }
         },
     },
 };

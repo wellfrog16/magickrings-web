@@ -3,7 +3,7 @@
         <span :class="`status-${data.status}`"></span>
         <h2>{{ data.name }}</h2>
         <p v-html="remark"></p>
-        <span :class="$style.price">￥{{ data.price }}</span>
+        <span :class="$style.price">{{ data.price | currency('￥', 2) }}</span>
         <div :class="$style.button">
             <a class="more-button" :href="data.url" target="_blank">立即购买</a>
         </div>

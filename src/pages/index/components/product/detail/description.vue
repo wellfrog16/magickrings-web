@@ -32,14 +32,14 @@ export default {
             val && this.update();
         },
     },
-    mounted() {
-    },
     methods: {
         ...mapMutations(['setState']),
 
         update() {
-            this.activeName = this.data.contents[0].tabIndex;
-            this.setState({ updated: true });
+            if (this.data.contents && this.data.contents.length > 0) {
+                this.activeName = this.data.contents[0].tabIndex;
+                this.setState({ updated: true });
+            }
         },
     },
 };

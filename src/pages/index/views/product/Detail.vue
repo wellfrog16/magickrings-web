@@ -30,6 +30,10 @@ export default {
         return {
         };
     },
+    beforeRouteUpdate(to, form, next) {
+        next();
+        this.loadInfo();
+    },
     mounted() {
         this.loadInfo();
     },

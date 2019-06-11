@@ -18,7 +18,7 @@
             <el-col :span="6">
                 <h4>ABOUT US</h4>
                 <ul>
-                    <li><a href="#">品牌故事</a></li>
+                    <li><router-link to="/story">品牌故事</router-link></li>
                     <li><a href="#">官方商城</a></li>
                 </ul>
             </el-col>

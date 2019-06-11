@@ -2,14 +2,16 @@
     <div :class="$style.main">
         <el-row :gutter="20">
             <el-col :span="12" v-for="item in data" :key="item.name" class="flex-center">
-                <div :class="[$style.item, 'rel-fullsize']">
-                    <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/category/${item.name}-photo.jpg`" :alt="item.name">
-                    <div class="abs-fullsize main-box">
-                        <!-- <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/category/${item.name}-text.png`"> -->
-                        <h3>{{ item.title }}</h3>
-                        <p>{{ item.desc }}</p>
+                <router-link :to="`/product/category/5?child=${item.id}`">
+                    <div :class="[$style.item, 'rel-fullsize']">
+                        <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/category/${item.name}-photo.jpg`" :alt="item.name">
+                        <div class="abs-fullsize main-box">
+                            <!-- <img :src="`${$store.state.publicPath}/src/assets/img/usr/home/category/${item.name}-text.png`"> -->
+                            <h3>{{ item.title }}</h3>
+                            <p>{{ item.desc }}</p>
+                        </div>
                     </div>
-                </div>
+                </router-link>
             </el-col>
         </el-row>
     </div>
@@ -20,8 +22,18 @@ export default {
     data() {
         return {
             data: [
-                { name: 'astral-reading', title: 'ASTRAL READING', desc: '星光占卜' },
-                { name: 'holy-fire-reiki', title: 'HOLY FIRE REIKI', desc: '圣火灵气' },
+                {
+                    id: 5,
+                    name: 'astral-reading',
+                    title: 'ASTRAL READING',
+                    desc: '星光占卜',
+                },
+                {
+                    id: 10,
+                    name: 'holy-fire-reiki',
+                    title: 'HOLY FIRE REIKI',
+                    desc: '圣火灵气',
+                },
             ],
         };
     },

@@ -4,7 +4,7 @@
             <el-row :gutter="28">
                 <el-col :span="6" v-for="item in list" :key="item.id" :class="$style.item">
                     <div :class="$style.photo">
-                        <img :src="`${imgServer}/${item.photos[0]}`" width="280" height="360">
+                        <img :src="`${imgServer}/${item.cover}`" width="280" height="360">
                         <p class="abs-fullsize flex-center">
                             <router-link :to="`/product/detail/${item.id}`"><span>浏览详细</span></router-link>
                         </p>
@@ -13,6 +13,7 @@
                     <h5>{{ item.name }}</h5>
                     <span :class="$style.price">{{ item.price | currency('￥', 2) }}</span>
                 </el-col>
+                <el-col :span="24" v-if="list.length === 0">没有搜索到数据</el-col>
             </el-row>
         </div>
         <div :class="$style.button">
@@ -34,26 +35,28 @@ export default {
             category: 0,
             p: 1,
             ps: 2,
+            q: '',
             imgServer: config.server.img,
         };
     },
     beforeRouteUpdate(to, form, next) {
-        this.category = to.params.id;
-        this.init();
         next();
+        this.init();
     },
     mounted() {
-        this.category = this.$route.params.id;
         this.init();
     },
     methods: {
         ...mapMutations(['setState']),
 
         init() {
-            this.setBreadcrumb();
-            this.btnMoreVisible = true;
-            this.list = [];
+            this.setState({ updated: false });
+            this.category = this.$route.params.id;
+            this.q = this.$route.query.key;
+            this.btnMoreVisible = false;
             this.p = 1;
+
+            if (this.category) { this.setBreadcrumb(); }
             this.loadlist();
         },
 
@@ -69,15 +72,39 @@ export default {
                 5: { name: '仪式占卜', path },
             };
 
-            this.setState({ breadcrumb: [data[id]] });
+            const { childName } = this.$route.query;
+            const { fullPath } = this.$route;
+
+            const breadcrumb = [data[id]];
+            if (childName) {
+                breadcrumb.push({ name: childName, path: fullPath });
+            }
+            this.setState({ breadcrumb });
         },
 
         // 列表
         async loadlist() {
             const id = this.category;
-            const res = await api.list({ category: id, p: this.p, ps: this.ps });
+            const filters = {
+                category: id,
+                child: this.$route.query.child,
+                p: this.p,
+                ps: this.ps,
+            };
+
+            if (this.q) {
+                delete filters.category;
+                delete filters.child;
+                filters.q = this.q;
+            }
+            const res = await api.list(filters);
             if (res && res.list.length > 0) {
-                this.list = [...this.list, ...res.list];
+                if (this.p === 1) {
+                    this.list = [...res.list];
+                } else {
+                    this.list = [...this.list, ...res.list];
+                }
+                this.btnMoreVisible = !res.list.length < this.ps;
             } else {
                 this.btnMoreVisible = false;
             }

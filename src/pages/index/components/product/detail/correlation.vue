@@ -4,36 +4,54 @@
         <el-row :gutter="28">
             <el-col :span="6" v-for="item in list" :key="item.id" :class="$style.item">
                 <div :class="$style.photo">
-                    <img :src="`${$store.state.publicPath}/src/assets/img/usr/magick/${item.photo}`">
-                    <p class="abs-fullsize flex-center"><span>浏览详细</span></p>
+                    <img :src="`${imgServer}/${item.cover}`" width="280" height="360">
+                    <p class="abs-fullsize flex-center">
+                        <router-link :to="`/product/detail/${item.id}`"><span>浏览详细</span></router-link>
+                    </p>
                 </div>
                 <h5>{{ item.name }}</h5>
                 <span :class="$style.price">{{ item.price | currency('￥', 2) }}</span>
-                <div><span :class="$style.button">即刻购买</span></div>
+                <div><a :class="$style.button" :href="item.url" target="_blank">即刻购买</a></div>
             </el-col>
         </el-row>
     </div>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+import api from '@/api/usr/product';
+import config from '@/config';
+
+const { mapState, mapMutations } = createNamespacedHelpers('product');
+
 export default {
     data() {
         return {
-            list: [
-                {
-                    id: 1, name: '产品名称', photo: 'photo1.jpg', price: '100', status: 'new',
-                },
-                {
-                    id: 2, name: '产品名称', photo: 'photo2.jpg', price: '100', status: 'hot',
-                },
-                {
-                    id: 3, name: '产品名称', photo: 'photo3.jpg', price: '100', status: 'sale',
-                },
-                {
-                    id: 4, name: '产品名称', photo: 'photo4.jpg', price: '100', status: 'new',
-                },
-            ],
+            imgServer: config.server.img,
+            list: [],
         };
+    },
+    computed: {
+        ...mapState(['data', 'updated']),
+    },
+    watch: {
+        updated(val) {
+            val && this.update();
+        },
+    },
+    methods: {
+        ...mapMutations(['setState']),
+
+        async loadList() {
+            const res = await api.list({ ids: this.data.relate, p: 1, ps: 4 });
+            if (res && res.list.length > 0) {
+                this.list = [...res.list];
+            }
+            this.setState({ updated: false });
+        },
+        update() {
+            this.loadList();
+        },
     },
 };
 </script>

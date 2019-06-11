@@ -50,6 +50,8 @@ const router = new Router({
                     path: 'home',
                     component: () => import('../views/home/Index.vue'),
                 },
+
+                // 产品
                 {
                     path: 'product',
                     component: Root,
@@ -62,34 +64,33 @@ const router = new Router({
                             path: 'detail/:id',
                             component: () => import('../views/product/Detail.vue'),
                         },
+                        {
+                            path: 'search',
+                            component: () => import('../views/product/Index.vue'),
+                        },
                     ],
                 },
+
+                // 课程
                 {
-                    name: '恋爱魔法',
-                    path: 'magick-love',
-                    component: () => import('../views/magick/Love.vue'),
-                    // children: [
-                    //     {
-                    //         name: '水晶',
-                    //         path: 'detail',
-                    //         component: () => import('../views/magick/Detail.vue'),
-                    //     },
-                    // ],
+                    path: 'course',
+                    component: Root,
+                    redirect: { path: '/course/index' },
+                    children: [
+                        {
+                            path: 'index',
+                            component: () => import('../views/course/Index.vue'),
+                        },
+                        {
+                            path: 'student',
+                            component: () => import('../views/course/Student.vue'),
+                        },
+                    ],
                 },
                 {
                     name: '品牌故事',
                     path: 'story',
                     component: () => import('../views/story/Index.vue'),
-                },
-                {
-                    name: '水晶',
-                    path: 'detail',
-                    component: () => import('../views/magick/Detail.vue'),
-                },
-                {
-                    name: '课程',
-                    path: 'course',
-                    component: () => import('../views/course/Index.vue'),
                 },
                 {
                     name: '课程1',
