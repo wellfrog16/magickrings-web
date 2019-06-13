@@ -103,6 +103,10 @@ export default {
     position: absolute;
     left: 78px;
     top: 35px;
+
+    img {
+        width: 200px;
+    }
 }
 
 .search {
@@ -117,8 +121,8 @@ export default {
     }
 
     input {
-        width: 250px;
-        height: 40px;
+        width: 180px;
+        height: 30px;
         outline: none;
         border: 1px solid #000;
         padding-left: 10px;

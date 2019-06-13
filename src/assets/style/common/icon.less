@@ -23,7 +23,10 @@
 .icon-search {
     @url: '../../img/icon/search.png';
 
-    .iconInit(@url);
+    background-image: data-uri(@url);
+    background-size: 100% auto;
+    width: 22px;
+    height: 22px;
 }
 
 .icon-douyin {

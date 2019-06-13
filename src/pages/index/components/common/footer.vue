@@ -92,7 +92,7 @@ footer {
 }
 
 .container {
-    height: 400px;
+    height: 330px;
     color: #fff;
     max-width: 1200px;
     margin: 0 auto;

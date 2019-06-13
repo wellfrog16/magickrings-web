@@ -11,7 +11,7 @@
                     <h5>{{ item.title }}</h5>
                     <p>{{ item.message }}</p>
                 </div>
-                <div :class="$style.more"><a :href="item.url" target="_blank">查看更多》</a></div>
+                <div :class="$style.more"><a :href="item.url" target="_blank">查看更多 <i class="el-icon-d-arrow-right" /></a></div>
                 <div :class="$style.button"></div>
             </el-col>
         </el-row>
@@ -46,7 +46,7 @@ export default {
 <style lang="less" module>
 .main {
     max-width: 1200px;
-    margin: 80px auto 30px auto;
+    margin: 80px auto 60px auto;
 
     h3 {
         line-height: 40px;

@@ -18,7 +18,7 @@ export default {
 .main {
     height: 180px;
     background-color: #000;
-    margin: 80px auto;
+    margin: 0 auto 80px auto;
     color: #fff;
     text-align: center;
     flex-direction: column;

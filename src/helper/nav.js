@@ -57,10 +57,6 @@ export default [
         // ],
     },
     {
-        name: '品牌故事',
-        path: '/story',
-    },
-    {
         name: '课程',
         children: [
             { name: '学员', path: '/course/student' },
@@ -72,5 +68,9 @@ export default [
         //     { name: '草药学课', link: '' },
         //     { name: '美容魔法课', link: '' },
         // ],
+    },
+    {
+        name: '品牌故事',
+        path: '/story',
     },
 ];
