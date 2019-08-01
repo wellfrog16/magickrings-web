@@ -1,6 +1,6 @@
+import { Loading } from 'element-ui';
 import { axios } from '@/utils/cdn';
 // import { Loading, Notification } from 'element-ui';
-import { Loading } from 'element-ui';
 import conf from '@/config';
 // import helper from '@/helper/helper';
 

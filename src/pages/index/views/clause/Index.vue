@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import api from '@/api/usr/clause';
 import { mapMutations } from 'vuex';
+import api from '@/api/usr/clause';
 
 export default {
     data() {

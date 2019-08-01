@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import api from '@/api/usr/story';
 import { mapMutations } from 'vuex';
+import api from '@/api/usr/story';
 
 export default {
     data() {

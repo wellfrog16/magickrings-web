@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import { Swiper } from '@/utils/cdn';
 import { createNamespacedHelpers } from 'vuex';
+import { Swiper } from '@/utils/cdn';
 import config from '@/config';
 
 const { mapState, mapMutations } = createNamespacedHelpers('product');

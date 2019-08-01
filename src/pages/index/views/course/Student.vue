@@ -34,9 +34,9 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import api from '@/api/usr/student';
 import config from '@/config';
-import { mapMutations } from 'vuex';
 
 export default {
     data() {

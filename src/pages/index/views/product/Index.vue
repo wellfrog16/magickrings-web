@@ -23,9 +23,9 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import api from '@/api/usr/product';
 import config from '@/config';
-import { mapMutations } from 'vuex';
 
 export default {
     data() {
@@ -34,7 +34,7 @@ export default {
             btnMoreVisible: true,
             category: 0,
             p: 1,
-            ps: 2,
+            ps: 20,
             q: '',
             imgServer: config.server.img,
         };

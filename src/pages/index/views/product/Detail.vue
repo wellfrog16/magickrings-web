@@ -10,11 +10,11 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
 import XPhotos from '#index/components/product/detail/photos.vue';
 import XInfo from '#index/components/product/detail/info.vue';
 import XDescription from '#index/components/product/detail/description.vue';
 import XCorrelation from '#index/components/product/detail/correlation.vue';
-import { createNamespacedHelpers } from 'vuex';
 import api from '@/api/usr/product';
 
 const { mapMutations } = createNamespacedHelpers('product');
