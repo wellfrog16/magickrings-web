@@ -11,7 +11,7 @@
     "log": "git log --pretty=oneline"
   },
   "dependencies": {
-    "element-ui": "^2.6.1",
+    "element-ui": "^2.11.1",
     "vue": "^2.6.10",
     "vue-infinite-loading": "^2.4.3",
     "vue-router": "^3.0.2",

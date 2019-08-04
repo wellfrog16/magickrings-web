@@ -2,7 +2,7 @@ import Vue from 'vue';
 // import ElementUI from 'element-ui';
 import {
     Icon, Row, Col, Breadcrumb, BreadcrumbItem, Tabs, TabPane, Tooltip, Form, FormItem, Input,
-    Select, Option, DatePicker, Button,
+    Select, Option, DatePicker, Button, Image,
 } from 'element-ui';
 import InfiniteLoading from 'vue-infinite-loading'; // 滚动加载
 // import filters from '@/utils/filters';
@@ -35,6 +35,7 @@ Vue.use(Select);
 Vue.use(Option);
 Vue.use(DatePicker);
 Vue.use(Button);
+Vue.use(Image);
 Vue.use(InfiniteLoading);
 
 new Vue({

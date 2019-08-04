@@ -157,7 +157,7 @@ export default {
             position: absolute;
             z-index: 10;
             left: -5px;
-            width: 120px;
+            width: 150px;
             padding: 10px 0;
             background-color: #fff;
             // font-weight: normal;

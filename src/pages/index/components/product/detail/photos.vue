@@ -3,14 +3,14 @@
         <div :class="[$style['swiper-container'], $style['gallery-top']]">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(item, index) in data.photos" :key="index">
-                    <img :src="`${imgServer}/${item}`" width="600" height="600">
+                    <el-image :src="`${imgServer}/${item}`" style="width: 600px; height: 600px;" fit="contain" />
                 </div>
             </div>
         </div>
         <div :class="[$style['swiper-container'], $style['gallery-thumbs']]">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(item, index) in data.photos" :key="index">
-                    <img :src="`${imgServer}/${item}`" width="100" height="100">
+                    <img :src="`${imgServer}/${item}`" style="width: 100px; height: 100px;" fit="cover" />
                 </div>
             </div>
         </div>

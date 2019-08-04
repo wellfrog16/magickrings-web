@@ -4,7 +4,7 @@
             <el-row :gutter="28">
                 <el-col :span="6" v-for="item in list" :key="item.id" :class="$style.item">
                     <div :class="$style.photo">
-                        <img :src="`${imgServer}/${item.cover}`" width="280" height="360">
+                        <el-image :src="`${imgServer}/${item.cover}`" fit="contain" />
                         <p class="abs-fullsize flex-center">
                             <router-link :to="`/product/detail/${item.id}`"><span>浏览详细</span></router-link>
                         </p>
@@ -137,7 +137,8 @@ export default {
         width: 100%;
 
         img {
-            width: 100%;
+            width: 280px;
+            height: 360px;
         }
 
         p span {
