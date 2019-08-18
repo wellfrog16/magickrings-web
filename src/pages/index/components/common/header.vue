@@ -69,7 +69,7 @@ export default {
             if (res) {
                 this.navData.forEach((item) => {
                     if (item.children) {
-                        const result = res.list.find(el => el.name === item.name);
+                        const result = res.list.find(el => el.id === item.id);
                         if (result) {
                             item.children = [...result.children];
                         }

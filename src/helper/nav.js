@@ -1,7 +1,7 @@
 export default [
     {
         id: 1,
-        name: '恋爱魔法',
+        name: '女巫魔法',
         children: [],
         // children: [
         //     { name: '水晶', link: '' },
@@ -13,7 +13,7 @@ export default [
     },
     {
         id: 2,
-        name: '招财魔法',
+        name: '灵气水晶',
         children: [],
         // children: [
         //     { name: '水晶', link: '' },
@@ -25,25 +25,13 @@ export default [
     },
     {
         id: 3,
-        name: '美容魔法',
+        name: '魔法首饰',
         children: [],
         // children: [
         //     { name: '彩妆', link: '' },
         //     { name: '护肤品', link: '' },
         //     { name: '食品', link: '' },
         //     { name: '工具', link: '' },
-        // ],
-    },
-    {
-        id: 4,
-        name: '驱邪转运',
-        children: [],
-        // children: [
-        //     { name: '水晶', link: '' },
-        //     { name: '饰品', link: '' },
-        //     { name: '家居香氛', link: '' },
-        //     { name: '许愿瓶', link: '' },
-        //     { name: '精油', link: '' },
         // ],
     },
     {
@@ -54,6 +42,18 @@ export default [
         //     { name: '魔法仪式', link: '' },
         //     { name: '灵气仪式', link: '' },
         //     { name: '星光体占卜', link: '' },
+        // ],
+    },
+    {
+        id: 4,
+        name: '魔法周边',
+        children: [],
+        // children: [
+        //     { name: '水晶', link: '' },
+        //     { name: '饰品', link: '' },
+        //     { name: '家居香氛', link: '' },
+        //     { name: '许愿瓶', link: '' },
+        //     { name: '精油', link: '' },
         // ],
     },
     {
