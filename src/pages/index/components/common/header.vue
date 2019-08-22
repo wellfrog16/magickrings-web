@@ -8,13 +8,14 @@
                 <li v-for="(item, index) in navData" :key="index">
                     <span v-if="item.children" :class="$style.name">{{ item.name }}<i class="el-icon-arrow-down"></i></span>
                     <!-- 无children -->
-                    <span v-else><router-link :to="item.path">{{ item.name }}</router-link></span>
+                    <span v-else><router-link :to="item.path" target="_blank">{{ item.name }}</router-link></span>
                     <!-- 有children -->
                     <ul v-if="item.children">
                         <li v-for="child in item.children" :key="child.name">
-                            <router-link v-if="child.path" :to="child.path">{{ child.name }}</router-link>
+                            <router-link v-if="child.path" :to="child.path" target="_blank">{{ child.name }}</router-link>
                             <router-link
                                 v-else
+                                target="_blank"
                                 :to="`/product/category/${item.id}?child=${child.id}&childName=${child.name}`"
                             >
                                 {{ child.name }}

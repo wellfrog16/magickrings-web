@@ -75,12 +75,20 @@ const router = new Router({
                 {
                     path: 'course',
                     component: Root,
-                    redirect: { path: '/course/index' },
+                    redirect: { path: '/course/student' },
                     children: [
                         {
-                            path: 'index',
-                            component: () => import('../views/course/Index.vue'),
+                            path: 'lingqi',
+                            component: () => import('../views/course/Lingqi.vue'),
                         },
+                        {
+                            path: 'tongling',
+                            component: () => import('../views/course/Tongling.vue'),
+                        },
+                        // {
+                        //     path: 'index',
+                        //     component: () => import('../views/course/Index.vue'),
+                        // },
                         {
                             path: 'student',
                             component: () => import('../views/course/Student.vue'),

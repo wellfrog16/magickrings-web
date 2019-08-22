@@ -60,7 +60,8 @@ export default [
         name: '课程',
         children: [
             { name: '学员', path: '/course/student' },
-            { name: '课程介绍', path: '/course/index' },
+            { name: '灵气课程', path: '/course/lingqi' },
+            { name: '通灵课程', path: '/course/tongling' },
         ],
         // children: [
         //     { name: '灵气课', link: '' },
