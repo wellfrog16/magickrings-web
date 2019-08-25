@@ -71,6 +71,26 @@ const router = new Router({
                     ],
                 },
 
+                // 仪式
+                {
+                    path: 'ritual',
+                    component: Root,
+                    children: [
+                        {
+                            path: 'mofa',
+                            component: () => import('../views/ritual/Mofa.vue'),
+                        },
+                        {
+                            path: 'zhanbu',
+                            component: () => import('../views/ritual/Zhanbu.vue'),
+                        },
+                        {
+                            path: 'zhuanyun',
+                            component: () => import('../views/ritual/Zhuanyun.vue'),
+                        },
+                    ],
+                },
+
                 // 课程
                 {
                     path: 'course',

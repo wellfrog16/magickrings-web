@@ -12,6 +12,17 @@ export default [
         // ],
     },
     {
+        id: 3,
+        name: '魔法首饰',
+        children: [],
+        // children: [
+        //     { name: '彩妆', link: '' },
+        //     { name: '护肤品', link: '' },
+        //     { name: '食品', link: '' },
+        //     { name: '工具', link: '' },
+        // ],
+    },
+    {
         id: 2,
         name: '灵气水晶',
         children: [],
@@ -24,25 +35,12 @@ export default [
         // ],
     },
     {
-        id: 3,
-        name: '魔法首饰',
-        children: [],
-        // children: [
-        //     { name: '彩妆', link: '' },
-        //     { name: '护肤品', link: '' },
-        //     { name: '食品', link: '' },
-        //     { name: '工具', link: '' },
-        // ],
-    },
-    {
-        id: 5,
         name: '仪式占卜',
-        children: [],
-        // children: [
-        //     { name: '魔法仪式', link: '' },
-        //     { name: '灵气仪式', link: '' },
-        //     { name: '星光体占卜', link: '' },
-        // ],
+        children: [
+            { name: '女巫圣火灵气转运', path: '/ritual/zhuanyun' },
+            { name: '独家魔法仪式', path: '/ritual/mofa' },
+            { name: '通灵星光体占卜', path: '/ritual/zhanbu' },
+        ],
     },
     {
         id: 4,
