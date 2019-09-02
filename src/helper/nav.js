@@ -12,7 +12,7 @@ export default [
         // ],
     },
     {
-        id: 3,
+        id: 2,
         name: '魔法首饰',
         children: [],
         // children: [
@@ -23,7 +23,7 @@ export default [
         // ],
     },
     {
-        id: 2,
+        id: 3,
         name: '灵气水晶',
         children: [],
         // children: [
