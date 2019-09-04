@@ -20,6 +20,9 @@
 
         <!-- blog买家秀 -->
         <x-blog />
+
+        <!-- XNotification -->
+        <x-notification :visible.sync="visible" />
     </div>
 </template>
 
@@ -31,6 +34,7 @@ import XCategory from '#index/components/home/category.vue';
 import XCourse from '#index/components/home/course.vue';
 import XCertificate from '#index/components/home/certificate.vue';
 import XBlog from '#index/components/home/blog.vue';
+import XNotification from '#index/components/home/notification.vue';
 
 export default {
     components: {
@@ -41,6 +45,15 @@ export default {
         XCourse,
         XCertificate,
         XBlog,
+        XNotification,
+    },
+    data() {
+        return {
+            visible: false,
+        };
+    },
+    mounted() {
+        this.visible = true;
     },
 };
 </script>
