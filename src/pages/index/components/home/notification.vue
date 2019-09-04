@@ -1,12 +1,12 @@
 <template>
-    <div :class="$style.main" v-show="visible">
+    <div :class="$style.main" v-if="visible">
         <div :class="$style.wrapper">
             <div :class="$style.content">
                 <h3>{{ title }}</h3>
                 <p v-html="content"></p>
             </div>
             <div :class="$style.photo">
-                <el-image :src="`${imgServer}/${photo}`" style="width: 400px; height: 480px;" fit="cover" />
+                <el-image :src="photoUrl" style="width: 400px; height: 480px;" fit="cover" />
             </div>
             <div :class="$style.close" @click="handleClose">×</div>
         </div>
@@ -25,8 +25,8 @@ export default {
         return {
             title: '',
             content: '',
-            photo: '',
             imgServer: config.server.img,
+            photoUrl: '',
         };
     },
     mounted() {
@@ -38,7 +38,7 @@ export default {
             if (res) {
                 this.title = res.title;
                 this.content = res.content;
-                this.photo = res.photo;
+                this.photoUrl = `${this.imgServer}/${res.photo}`;
             }
         },
 
