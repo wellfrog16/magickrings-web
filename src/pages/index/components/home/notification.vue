@@ -1,12 +1,11 @@
 <template>
     <div :class="$style.main" v-if="visible">
         <div :class="$style.wrapper">
-            <div :class="$style.content">
-                <h3>{{ title }}</h3>
-                <p v-html="content"></p>
-            </div>
             <div :class="$style.photo">
-                <el-image :src="photoUrl" style="width: 400px; height: 480px;" fit="cover" />
+                <a :href="linkUrl" target="_blank" v-if="linkUrl">
+                    <el-image :src="photoUrl" style="width: 750px; height: 450px;" fit="cover" />
+                </a>
+                <el-image v-else :src="photoUrl" style="width: 750px; height: 450px;" fit="cover" />
             </div>
             <div :class="$style.close" @click="handleClose">×</div>
         </div>
@@ -27,6 +26,7 @@ export default {
             content: '',
             imgServer: config.server.img,
             photoUrl: '',
+            linkUrl: '',
         };
     },
     mounted() {
@@ -36,8 +36,7 @@ export default {
         async loadInfo() {
             const res = await api.detail();
             if (res) {
-                this.title = res.title;
-                this.content = res.content;
+                this.linkUrl = res.url;
                 this.photoUrl = `${this.imgServer}/${res.photo}`;
             }
         },
@@ -52,8 +51,8 @@ export default {
 <style lang="less" module>
 .main {
     position: fixed;
-    width: 1060px;
-    height: 480px;
+    width: 750px;
+    height: 450px;
     z-index: 1000;
     top: 20vh;
     left: 50%;
@@ -63,18 +62,11 @@ export default {
 
 .wrapper {
     position: relative;
-    display: flex;
     height: 100%;
 
-    .content {
-        flex-grow: 1;
-        box-sizing: border-box;
-        padding: 48px;
-        overflow: auto;
-    }
-
     .photo {
-        flex: 0 0 400px;
+        height: 100%;
+        width: 100%;
         background-color: #ccc;
     }
 

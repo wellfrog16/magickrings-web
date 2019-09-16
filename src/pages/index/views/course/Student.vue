@@ -3,7 +3,7 @@
         <el-tabs v-model="activeName" :class="$style.tabs" @tab-click="handleClick">
             <el-tab-pane label="灵气课程" name="灵气课程"></el-tab-pane>
             <el-tab-pane label="通灵课程" name="通灵课程"></el-tab-pane>
-            <el-tab-pane label="草药学科" name="草药学科"></el-tab-pane>
+            <el-tab-pane label="花精课程" name="花精课程"></el-tab-pane>
             <el-tab-pane label="美容魔法课" name="美容魔法课"></el-tab-pane>
         </el-tabs>
         <div :class="$style.wrapper">
@@ -145,6 +145,7 @@ export default {
         width: 120px;
 
         > div {
+            background-size: contain;
             height: 120px;
             width: 120px;
             border-radius: 100%;
