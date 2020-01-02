@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.main" v-if="visible">
+    <div :class="$style.main" v-if="show && visible">
         <div :class="$style.wrapper">
             <div :class="$style.photo">
                 <a :href="linkUrl" target="_blank" v-if="linkUrl">
@@ -27,6 +27,7 @@ export default {
             imgServer: config.server.img,
             photoUrl: '',
             linkUrl: '',
+            show: false,
         };
     },
     mounted() {
@@ -38,6 +39,7 @@ export default {
             if (res) {
                 this.linkUrl = res.url;
                 this.photoUrl = `${this.imgServer}/${res.photo}`;
+                this.show = res.show;
             }
         },
 

@@ -80,7 +80,7 @@
 export default {
     data() {
         return {
-            copyright: '&copy;2019 你们的域名.com 京ICP备 12003892号-11',
+            copyright: '&copy;2019 magickglobal.com <a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备 12003892号-11</a>',
         };
     },
 };
