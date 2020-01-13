@@ -1,14 +1,6 @@
-@import '../config.less';
+@import '../usr/index.config.less';
 
 // ------------------------------------全局样式-----------------------------------------
-
-body {
-    font-family: 'Microsoft YaHei', '微软雅黑', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
-    font-size: @g-fontSize;
-    color: @g-color;
-    background-color: @g-backgroundColor;
-}
-
 // fontawesome
 .menu-fix-icon {
     vertical-align: middle;
@@ -68,10 +60,32 @@ body {
     display: block;
 }
 
-.clear-box {
-    ul, li {
-        padding: 0;
-        margin: 0;
-        list-style: none;
+.color-primary {
+    color: @g-color-primary;
+}
+
+// 主框架padding
+.main-wrapper {
+    padding: 20px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-important {
+    img {
+        width: 100% !important;
+        height: initial !important;
+    }
+
+    // 强制编辑器输出样式
+    div, p, span {
+        width: initial !important;
+        line-height: 1.8em !important;
+        font-family: @g-font-family !important;
+        font-size: @g-font-size !important;
+        color: @g-color2 !important;
+        text-align: left !important;
     }
 }

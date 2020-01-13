@@ -5,62 +5,43 @@
     background-repeat: no-repeat;
 }
 
-.iconInit(@url) {
+.iconBg(@url) {
     background-image: data-uri(@url);
     background-size: 100% auto;
+}
+
+.iconInit(@url) {
+    .iconBg(@url);
+
     width: image-width(@url);
     height: image-height(@url);
 }
 
+.iconInit(@url, @direction) when(@direction = 'x') {
+    .iconBg(@url);
+
+    width: image-width(@url) / 2;
+    height: image-height(@url);
+}
+
+.iconInit(@url, @direction) when(@direction = 'y') {
+    .iconBg(@url);
+
+    width: image-width(@url);
+    height: image-height(@url) / 2;
+}
+
 .icon-col-active {
-    background-position-y: -100%;
+    background-position-y: 100%;
 }
 
 .icon-row-active {
-    background-position-x: -100%;
+    background-position-x: 100%;
 }
 
-.icon-search {
-    @url: '../../img/icon/search.png';
+// 音乐
+.icon-music {
+    @url: '../../img/common/icon/icon-music.png';
 
-    background-image: data-uri(@url);
-    background-size: 100% auto;
-    width: 22px;
-    height: 22px;
-}
-
-.icon-douyin {
-    @url: '../../img/icon/douyin.png';
-
-    .iconInit(@url);
-}
-
-.icon-weibo {
-    @url: '../../img/icon/weibo.png';
-
-    .iconInit(@url);
-}
-
-.icon-wechat {
-    @url: '../../img/icon/wechat.png';
-
-    .iconInit(@url);
-}
-
-.icon-xiaohongshu {
-    @url: '../../img/icon/xiaohongshu.png';
-
-    .iconInit(@url);
-}
-
-.icon-star {
-    @url: '../../img/icon/star.png';
-
-    .iconInit(@url);
-}
-
-.icon-wenhao {
-    @url: '../../img/icon/wenhao.png';
-
-    .iconInit(@url);
+    .iconInit(@url, 'y');
 }

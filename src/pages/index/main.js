@@ -1,45 +1,33 @@
 import Vue from 'vue';
-// import ElementUI from 'element-ui';
-import {
-    Icon, Row, Col, Breadcrumb, BreadcrumbItem, Tabs, TabPane, Tooltip, Form, FormItem, Input,
-    Select, Option, DatePicker, Button, Image,
-} from 'element-ui';
-import InfiniteLoading from 'vue-infinite-loading'; // 滚动加载
-// import filters from '@/utils/filters';
+import BootstrapVue from 'bootstrap-vue';
 import store from './store';
-import router from './router/router';
+import router from './helper/router';
 import App from './App.vue';
+import { helper } from '@/helper/lakes';
+import { utils } from '@/utils/rivers';
 
 // 过滤器
 import '@/utils/filters';
 
 // 自定义指令
-import '@/utils/directive';
+import '@/directive';
+
+// 插件
+// import '@/plugins';
+
+// bootstrap
+Vue.use(BootstrapVue);
+
+// rem支持
+// utils.autoRootSize();
 
 Vue.config.productionTip = false;
 
-// 插件
-// Vue.use(ElementUI, { size: 'small', zIndex: 2000 });
-Vue.use(Icon);
-Vue.use(Row);
-Vue.use(Col);
-Vue.use(Breadcrumb);
-Vue.use(BreadcrumbItem);
-Vue.use(Tabs);
-Vue.use(TabPane);
-Vue.use(Tooltip);
-Vue.use(Form);
-Vue.use(FormItem);
-Vue.use(Input);
-Vue.use(Select);
-Vue.use(Option);
-Vue.use(DatePicker);
-Vue.use(Button);
-Vue.use(Image);
-Vue.use(InfiniteLoading);
+Vue.prototype.$helper = helper;
+Vue.prototype.$utils = utils;
 
-new Vue({
+window.vueIndex = new Vue({
     router,
     store,
-    render: h => h(App),
+    render: (h) => h(App),
 }).$mount('#app');

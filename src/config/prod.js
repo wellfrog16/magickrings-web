@@ -1,7 +1,9 @@
 const config = {
     server: {
-        api: 'http://api.dreamersky.com/magickrings',
-        img: 'http://image.dreamersky.com',
+        api: 'localhost:8080',
+        easyMock: 'https://easy-mock.com/mock/5d2f616fef6cae58e9f2d26f/template',
+        upload: 'localhost:8080',
+        image: 'localhost:8080',
     },
 };
 

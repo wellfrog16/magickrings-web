@@ -1,9 +1,7 @@
-import helper from './helper';
+import helper from './index';
 import config from '@/config';
-import cstore from './store';
 
 export {
     helper,
     config,
-    cstore,
 };
