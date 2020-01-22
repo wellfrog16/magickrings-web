@@ -1,6 +1,6 @@
 <template>
-    <div :class="$style.main">
-        <x-header />
+    <div>
+        <x-header :class="$style.header" />
         <x-breadcrumb />
         <router-view />
         <x-footer />
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="less" module>
-.main {
-    padding-top: 72px;
+.header {
+    margin-bottom: 10px;
 }
 </style>
