@@ -66,11 +66,13 @@
 
 // 主框架padding
 .main-wrapper {
-    padding: 20px;
-    box-sizing: border-box;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .editor-important {
@@ -87,5 +89,28 @@
         font-size: @g-font-size !important;
         color: @g-color2 !important;
         text-align: left !important;
+    }
+}
+
+.main-box {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px;
+
+    h3 {
+        font-size: 28px;
+        font-weight: normal;
+        word-spacing: 3px;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+    }
+
+    p {
+        line-height: 2em;
+        font-size: 16px;
     }
 }

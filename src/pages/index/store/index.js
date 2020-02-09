@@ -10,8 +10,10 @@ Vue.use(Vuex);
 // 返回 store 实例
 export default new Vuex.Store({
     state: {
-        message: null, // 全局错误检测
+        message: 11, // 全局错误检测
         notification: null,
+        routesMatched: [],
+        extraRoutes: [],
     },
     mutations: {
         setState: (state, payload) => utils.deepMerge(state, payload),

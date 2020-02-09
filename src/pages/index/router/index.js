@@ -4,13 +4,12 @@ import Router from 'vue-router';
 
 // 路由模块
 import routeHome from './modules/home';
+import routeStory from './modules/story';
+import routeCourse from './modules/course';
+import routeRitual from './modules/ritual';
+import routeProduct from './modules/product';
 
 Vue.use(Router);
-
-// 一个空模板，方便子节点使用
-// const Root = Vue.component('root', {
-//     template: '<router-view></router-view>',
-// });
 
 // 静态路由，不参与权限验证
 const staticRoutes = [
@@ -22,6 +21,10 @@ const staticRoutes = [
         },
     },
     routeHome,
+    routeStory,
+    routeCourse,
+    routeRitual,
+    routeProduct,
 ];
 
 const asyncRoutes = [];

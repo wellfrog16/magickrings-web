@@ -29,8 +29,6 @@ function formatResponse(params) {
 
     params.data = data;
 
-    console.log(params);
-
     return params;
 }
 

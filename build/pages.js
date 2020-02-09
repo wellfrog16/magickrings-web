@@ -4,7 +4,7 @@ const pages = env => {
             entry: 'src/pages/index/main.js',
             template: 'template/index.html',
             filename: 'index.html',
-            title: '我的网站',
+            title: 'Magickrings',
             chunks: ['chunk-vendors', 'chunk-common', 'index'],
             prod: true,
         },

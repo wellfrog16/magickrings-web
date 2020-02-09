@@ -1,1 +1,16 @@
 // 这里放覆盖组件的样式，比如bootstrap
+
+@import '../../usr/index.config.less';
+
+.navbar-light .navbar-nav .nav-link, .navbar-light a {
+    color: #000;
+    font-size: 1.2em;
+
+    &:hover {
+        color: @g-color-primary;
+    }
+}
+
+.dropdown-item:active {
+    background-color: transparent;
+}
