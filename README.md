@@ -1,11 +1,4 @@
-# template-bootsrape-vue
-
-## 说明
-
-* eslint airbnb校验
-* stylelint standard校验
-
-## todo
+# magickrings
 
 ## Project setup
 ```
