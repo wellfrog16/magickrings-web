@@ -22,7 +22,7 @@ body {
     -webkit-tap-highlight-color: transparent;
     font-family: @g-font-family;
     font-size: @g-font-size;
-    color: @g-color2;
+    color: #000;
     background-color: @g-background-color;
 
     &.lock {
@@ -72,5 +72,46 @@ a {
 
     &:hover {
         color: #fff;
+    }
+}
+
+.status() {
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    line-height: 70px;
+    text-align: center;
+}
+
+.status-new {
+    .status();
+
+    background-color: #000;
+
+    &::after {
+        content: 'NEW';
+    }
+}
+
+.status-hot {
+    .status();
+
+    background-color: #a57f50;
+
+    &::after {
+        content: 'HOT';
+    }
+}
+
+.status-sale {
+    .status();
+
+    background-color: #811c21;
+
+    &::after {
+        content: 'SALE';
     }
 }

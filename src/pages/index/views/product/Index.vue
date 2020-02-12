@@ -63,7 +63,7 @@ export default {
 
             // 设置面包屑
             const breadcrumb = [
-                { meta: { title }, path: '/home' },
+                { meta: { title }, path: '' },
                 { meta: { title: childName }, path: '' },
             ];
             this.$nextTick(() => this.setState({ routesMatched: breadcrumb }));
