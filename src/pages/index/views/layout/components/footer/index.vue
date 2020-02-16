@@ -1,6 +1,6 @@
 <template>
     <div :class="[$style.main, 'main-wrapper']">
-        <b-container>
+        <b-container class="py-3">
             <div class="row" :class="$style.container">
                 <div class="py-4 col-xl-3 col-sm-12 d-flex align-items-center">
                     <b-img src="/src/assets/img/sub-logo.png" width="120" />

@@ -1,12 +1,12 @@
 <template>
-    <b-container>
+    <b-container class="pb-5">
         <b-tabs v-model="tabIndex">
             <b-tab title="灵气课程"></b-tab>
             <b-tab title="通灵课程"></b-tab>
             <b-tab title="花精课程"></b-tab>
             <b-tab title="美容魔法课"></b-tab>
         </b-tabs>
-        <div :class="[$style.wrapper, 'row']">
+        <div :class="[$style.wrapper, 'row', 'mt-3']">
             <div class="col-xl-6 col-12" v-for="item in list" :key="item.id">
                 <div :class="$style.item">
                     <div :class="[$style.photo, 'flex-center']">
