@@ -8,6 +8,7 @@ import routeStory from './modules/story';
 import routeCourse from './modules/course';
 import routeRitual from './modules/ritual';
 import routeProduct from './modules/product';
+import routeClause from './modules/clause';
 
 Vue.use(Router);
 
@@ -25,6 +26,7 @@ const staticRoutes = [
     routeCourse,
     routeRitual,
     routeProduct,
+    routeClause,
 ];
 
 const asyncRoutes = [];
