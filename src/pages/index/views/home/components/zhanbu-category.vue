@@ -9,7 +9,7 @@
                 :key="item.id"
             >
                 <div class="rel-fullsize">
-                    <img :src="`/src/assets/img/photo-${item.name}.jpg`">
+                    <img :src="`./src/assets/img/photo-${item.name}.jpg`">
                     <div class="abs-fullsize main-box">
                         <h3>{{ item.title }}</h3>
                         <p>{{ item.desc }}</p>

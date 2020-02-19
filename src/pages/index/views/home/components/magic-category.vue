@@ -9,7 +9,7 @@
                 :to="`/product/category/${item.id}`"
             >
                 <div class="rel-fullsize">
-                    <img :src="`/src/assets/img/${item.name}.jpg`">
+                    <img :src="`./src/assets/img/${item.name}.jpg`">
                     <p class="abs-fullsize flex-center">{{ item.title }}</p>
                 </div>
             </router-link>

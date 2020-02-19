@@ -3,7 +3,7 @@
         <b-container class="py-3">
             <div class="row" :class="$style.container">
                 <div class="py-4 col-xl-3 col-sm-12 d-flex align-items-center">
-                    <b-img src="/src/assets/img/sub-logo.png" width="120" />
+                    <b-img :src="`./src/assets/img/sub-logo.png`" width="120" />
                 </div>
                 <div class="py-4 col-xl-3 col-sm-12">
                     <h4>FOLLOW US</h4>
@@ -30,14 +30,14 @@
                             <span>微信客服1: <span id="magickrings">magickrings</span></span>
 
                             <b-tooltip target="magickrings" triggers="hover blur" :custom-class="$style.tips">
-                                <img src="/src/assets/img/qr/magickrings.jpg" class="qr">
+                                <img :src="`./src/assets/img/qr/magickrings.jpg`" class="qr">
                             </b-tooltip>
                         </li>
                         <li>
                             <span>微信客服2: <span id="himalayancrystals">himalayancrystals</span></span>
 
                             <b-tooltip target="himalayancrystals" triggers="hover blur" :custom-class="$style.tips">
-                                <img src="/src/assets/img/qr/himalayancrystals.jpg" class="qr">
+                                <img :src="`./src/assets/img/qr/himalayancrystals.jpg`" class="qr">
                             </b-tooltip>
                         </li>
                     </ul>
@@ -49,19 +49,19 @@
                     </div>
 
                     <b-tooltip target="weibo" triggers="hover blur" :custom-class="$style.tips">
-                        <img src="/src/assets/img/qr/weibo.jpg" class="qr">
+                        <img :src="`./src/assets/img/qr/weibo.jpg`" class="qr">
                     </b-tooltip>
 
                     <b-tooltip target="wechat" triggers="hover blur" :custom-class="$style.tips">
-                        <img src="/src/assets/img/qr/wechat.jpg" class="qr">
+                        <img :src="`./src/assets/img/qr/wechat.jpg`" class="qr">
                     </b-tooltip>
 
                     <b-tooltip target="xiaohongshu" triggers="hover blur" :custom-class="$style.tips">
-                        <img src="/src/assets/img/qr/xiaohongshu.jpg" class="qr">
+                        <img :src="`./src/assets/img/qr/xiaohongshu.jpg`" class="qr">
                     </b-tooltip>
 
                     <b-tooltip target="douyin" triggers="hover blur" :custom-class="$style.tips">
-                        <img src="/src/assets/img/qr/douyin.jpg" class="qr">
+                        <img :src="`./src/assets/img/qr/douyin.jpg`" class="qr">
                     </b-tooltip>
                 </div>
             </div>

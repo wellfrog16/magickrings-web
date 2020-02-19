@@ -16,7 +16,8 @@ export default {
 @import '~@/assets/style/usr/index.config.less';
 
 .main {
-    @url: '/src/assets/img/ceremony-bg.jpg';
+    // @url: '/src/assets/img/ceremony-bg.jpg';
+    @url: '../../../../../../public/src/assets/img/ceremony-bg.jpg';
 
     background-image: url(@url);
     height: 650px;

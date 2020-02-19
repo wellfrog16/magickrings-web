@@ -19,7 +19,7 @@ export default {
 @import '~@/assets/style/usr/index.config.less';
 
 .main {
-    @url: '/src/assets/img/kv-bg.jpg';
+    @url: '../../../../../../public/src/assets/img/kv-bg.jpg';
 
     background-image: url(@url);
     height: 800px;

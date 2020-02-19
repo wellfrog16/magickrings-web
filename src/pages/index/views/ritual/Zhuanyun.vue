@@ -1,7 +1,7 @@
 <template>
     <div :class="[$style.main, 'content-wrapper']">
-        <div><img src="/src/assets/img/ritual/zhuanyun/main-1.jpg"></div>
-        <div><img src="/src/assets/img/ritual/zhuanyun/main-2.jpg"></div>
+        <div><img :src="`./src/assets/img/ritual/zhuanyun/main-1.jpg`"></div>
+        <div><img :src="`./src/assets/img/ritual/zhuanyun/main-2.jpg`"></div>
     </div>
 </template>
 

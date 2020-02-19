@@ -1,7 +1,7 @@
 <template>
     <b-navbar toggleable="lg" type="light" variant="faded" fixed="top">
         <b-navbar-brand :to="{ path: '/' }">
-            <img src="/src/assets/img/logo.png" alt="magickrings">
+            <img :src="`./src/assets/img/logo.png`" alt="magickrings">
         </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
