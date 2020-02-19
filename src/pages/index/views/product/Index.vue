@@ -12,7 +12,7 @@
                 <h5>{{ item.name }}</h5>
                 <span :class="$style.price">{{ item.price | currency('￥', 2) }}</span>
             </div>
-            <!-- <el-col :span="24" v-if="list.length === 0">没有搜索到数据</el-col> -->
+            <b-col v-if="list.length === 0">没有搜索到数据</b-col>
         </div>
         <div v-show="btnMoreVisible" class="flex-center">
             <span class="more-button" @click="handleMore">浏览更多商品</span>
@@ -34,6 +34,7 @@ export default {
                 child: 0,
                 p: 1,
                 ps: 16,
+                q: '',
             },
             imgServer: config.server.img,
             btnMoreVisible: true,
@@ -53,38 +54,51 @@ export default {
         ...mapMutations(['setState']),
 
         setBreadcrumb() {
-            const { id } = this.$route.params;
-            const title = product.category[id].name;
-            const { child, childName } = this.$route.query;
+            const { child, childName, key } = this.$route.query;
 
-            // 设置查询参数
-            this.filters.category = id;
-            this.filters.child = child;
+            if (key) {
+                this.filters.q = key;
+                // 设置面包屑
+                const breadcrumb = [
+                    { meta: { title: '查询结果' }, path: '' },
+                ];
+                this.$nextTick(() => this.setState({ routesMatched: breadcrumb }));
+            } else {
+                const { id } = this.$route.params;
+                const title = product.category[id].name;
 
-            // 设置面包屑
-            const breadcrumb = [
-                { meta: { title }, path: '' },
-                { meta: { title: childName }, path: '' },
-            ];
-            this.$nextTick(() => this.setState({ routesMatched: breadcrumb }));
+                // 设置查询参数
+                this.filters.category = id;
+                this.filters.child = child;
+
+                // 设置面包屑
+                const breadcrumb = [
+                    { meta: { title }, path: '' },
+                    { meta: { title: childName }, path: '' },
+                ];
+                this.$nextTick(() => this.setState({ routesMatched: breadcrumb }));
+            }
         },
 
         // 列表
         async loadlist() {
-            // if (this.q) {
-            //     delete filters.category;
-            //     delete filters.child;
-            //     filters.q = this.q;
-            // }
-            const res = await api.list(this.filters);
+            const filters = { ...this.filters };
+
+            if (this.filters.q) {
+                delete filters.category;
+                delete filters.child;
+            }
+
+            const res = await api.list(filters);
             if (res && res.list.length > 0) {
-                if (this.filters.p === 1) {
+                if (filters.p === 1) {
                     this.list = [...res.list];
                 } else {
                     this.list = [...this.list, ...res.list];
                 }
                 this.btnMoreVisible = this.list.length < res.total;
             } else {
+                this.list = [];
                 this.btnMoreVisible = false;
             }
         },
